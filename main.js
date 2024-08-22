@@ -2,7 +2,8 @@ const app = Vue.createApp(
     {
         data(){
             return {
-                product : 'socks'
+                product : 'socks',
+                description : 'good sockes'
             }
         }
     }

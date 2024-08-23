@@ -17,8 +17,11 @@ const app = Vue.createApp(
         },
         methods : {
             addToCart(){
-                this.cart+=1
-                this.inventory-=1
+                if(this.inventory > 0){
+
+                    this.cart+=1
+                    this.inventory-=1
+                }
             },
             changeImage(image){
                 this.image = image
@@ -27,9 +30,6 @@ const app = Vue.createApp(
                 if (this.cart > 0) {
                     this.cart-=1
                     this.inventory+=1
-                }
-                else{
-                    this.instock = false
                 }
             }
         }

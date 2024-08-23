@@ -8,8 +8,8 @@ const app = Vue.createApp(
                 inventory : 0,
                 details: ['50% cotton', '30% wool', '20% polyester'],
                 variants : [
-                    {id : 2234 , color : "green"},
-                    {id : 3434 , color : "blue"}
+                    {id : 2234 , color : "green" , image : './assets/images/socks_green.jpg'},
+                    {id : 3434 , color : "blue" , image : './assets/images/socks_blue.jpg'}
                 ],
                 cart : 0
             }
@@ -17,6 +17,14 @@ const app = Vue.createApp(
         methods : {
             addToCart(){
                 this.cart+=1
+            },
+            changeImage(image){
+                this.image = image
+            },
+            removeFromCart(){
+                if (this.cart > 0) {
+                    this.cart-=1
+                }
             }
         }
     }

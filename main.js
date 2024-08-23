@@ -13,6 +13,11 @@ const app = Vue.createApp(
                 ],
                 cart : 0
             }
+        },
+        methods : {
+            addToCart(){
+                this.cart+=1
+            }
         }
     }
 )

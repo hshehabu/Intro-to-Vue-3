@@ -12,7 +12,8 @@ const app = Vue.createApp(
                     {id : 2234 , color : "green" , image : './assets/images/socks_green.jpg'},
                     {id : 3434 , color : "blue" , image : './assets/images/socks_blue.jpg'}
                 ],
-                cart : 0
+                cart : 0,
+                brand : 'Vue Mastery',
             }
         },
         methods : {
@@ -31,6 +32,11 @@ const app = Vue.createApp(
                     this.cart-=1
                     this.inventory+=1
                 }
+            }
+        } , 
+        computed : {
+            title (){
+                return this.brand + ' ' + this.product
             }
         }
     }

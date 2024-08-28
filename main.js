@@ -2,12 +2,11 @@ const app = Vue.createApp(
     {
         data(){
             return {
-                instock : true,
                 product : 'socks',
-                image : './assets/images/socks_green.jpg',
                 url : 'https://yenesuq.com',
                 inventory : 5,
                 details: ['50% cotton', '30% wool', '20% polyester'],
+                selectedVariant : 0,
                 variants : [
                     {id : 2234 , color : "green" , image : './assets/images/socks_green.jpg', quantity : 30},
                     {id : 3434 , color : "blue" , image : './assets/images/socks_blue.jpg' , quantity : 0}
@@ -24,8 +23,8 @@ const app = Vue.createApp(
                     this.inventory-=1
                 }
             },
-            changeImage(image){
-                this.image = image
+            updateVariant(index){
+                this.selectedVariant = index
             },
             removeFromCart(){
                 if (this.cart > 0) {
@@ -37,6 +36,12 @@ const app = Vue.createApp(
         computed : {
             title (){
                 return this.brand + ' ' + this.product
+            } , 
+            image () {
+                return this.variants[this.selectedVariant].image
+            },
+            instock () {
+                return this.variants[this.selectedVariant].quantity
             }
         }
     }
